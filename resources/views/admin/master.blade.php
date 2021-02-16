@@ -32,7 +32,7 @@
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
             })
-
+            
             $(document).ready(function () {
                 $('[data-bs-toggle="tooltip"]').tooltip()
             });
