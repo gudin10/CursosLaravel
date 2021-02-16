@@ -24,8 +24,8 @@
             <div class="inside">
                 {!!Form::open(['url'=>'/admin/cursos/add'])!!}
                 <div class="row">
-                    <div class="col-md-5">
-                        <label for="title">Nombre del curso:</label>
+                    <div class="col-md-4">
+                        <label for="name">Nombre del curso:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">
                                 <i class="fas fa-file-signature"></i>
@@ -34,8 +34,8 @@
                           </div>
                             
                     </div>
-                    <div class="col-md-5">
-                        <label for="title">Categoría:</label>
+                    <div class="col-md-4">
+                        <label for="name">Categoría:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">
                                 <i class="fas fa-book"></i>
@@ -43,6 +43,28 @@
                             {!!Form::text('name',null,['class'=>'form-control'])!!}
                           </div>
                             <!--CONTENIDO Y DESCRIPCION -->
+                    </div>
+                    <div class="col-md-4">
+                        <label for="title">Imagen:</label>
+                            <div class="custom-file">
+                                <label for="formFileSm" class="form-label"></label>
+                                {!!Form::file('img',['class'=>'form-label','id'=>'formFileSm'])!!}
+                            </div>
+                            <!--CONTENIDO Y DESCRIPCION -->
+                    </div>
+                </div>
+
+                <div class="row mtop16">
+                    <div class="col-md-3">
+                        <label for="price">Precio:</label>
+                        {!!Form::number('price',null,['class'=>'form-control','min'=>'0.00','step'=>'any'])!!}
+                    </div>
+                </div>
+
+                <div class="row mtop16">
+                    <div class="col-md-12">
+                        <label for="content">Descripción</label>
+                        {!!Form::textarea('content',null,['class'=>'form-control'])!!}
                     </div>
                 </div>
                 {!!Form::close()!!}

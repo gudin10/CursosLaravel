@@ -18,7 +18,7 @@
     <div class="main">
         <ul>
             <li>
-                <a href="{{url('/admin')}}" style="text-decoration:none"><i class="fas fa-home"></i>Dashboard</a>
+                <a href="{{url('/admin')}}" style="text-decoration:none"><i class="fas fa-home"></i>Inicio</a>
             </li>
             <li>
                 <a href="{{url('/admin/cursos')}}" style="text-decoration:none"><i class="fas fa-chalkboard"></i>Cursos</a>
