@@ -22,7 +22,7 @@
             <h2 class="title"><i class="fas fa-plus-circle"></i>Agregar Cursos</h2>
         </div>
             <div class="inside">
-
+                
             </div>
         </div>
     </div>
