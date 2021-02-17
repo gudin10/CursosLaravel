@@ -24,7 +24,7 @@
             <div class="inside">
                 {!!Form::open(['url'=>'/admin/cursos/add'])!!}
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <label for="name">Nombre del curso:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">
@@ -34,18 +34,15 @@
                           </div>
                             
                     </div>
-                    <div class="col-md-4">
-                        <label for="name">Categoría:</label>
+                    <div class="col-md-3">
+                        <label for="category">Categoría:</label>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fas fa-book"></i>
-                            </span>
-                            {!!Form::text('name',null,['class'=>'form-control'])!!}
-                          </div>
+                            
+                        </div>
                             <!--CONTENIDO Y DESCRIPCION -->
                     </div>
-                    <div class="col-md-4">
-                        <label for="title">Imagen:</label>
+                    <div class="col-md-3">
+                        <label for="img">Imagen:</label>
                             <div class="custom-file">
                                 <label for="formFileSm" class="form-label"></label>
                                 {!!Form::file('img',['class'=>'form-label','id'=>'formFileSm'])!!}
@@ -57,14 +54,52 @@
                 <div class="row mtop16">
                     <div class="col-md-3">
                         <label for="price">Precio:</label>
-                        {!!Form::number('price',null,['class'=>'form-control','min'=>'0.00','step'=>'any'])!!}
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fas fa-dollar-sign"></i>
+                            </span>
+                            {!!Form::number('price',null,['class'=>'form-control','min'=>'0.00','step'=>'any'])!!}
+
+                          </div> 
                     </div>
+
+                    <div class="col-md-2">
+                        <label for="indiscount">Habilitar Descuento:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fas fa-comments-dollar"></i>
+                            </span>
+                            {!!Form::select('indiscount',['0'=>'No','1'=>'Si'],0,['class'=>'form-select'])!!}
+
+                          </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="discount">Descuento:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fas fa-percent"></i>
+                            </span>
+                            {!!Form::number('discount',0.00,['class'=>'form-control','min'=>'0.00','step'=>'any'])!!}
+
+                          </div>
+                    </div>
+
                 </div>
 
                 <div class="row mtop16">
                     <div class="col-md-12">
                         <label for="content">Descripción</label>
-                        {!!Form::textarea('content',null,['class'=>'form-control'])!!}
+                        {!!Form::textarea('content',null,['class'=>'form-control','id'=>'editor1'])!!}
+                        <script>
+                            CKEDITOR.replace( 'editor1' );
+                        </script>
+                    </div>
+                </div>
+                
+                <div class="row mtop16">
+                    <div class="col-md-12">
+                        {!!Form::submit('Guardar',['class'=>'btn btn-success'])!!}
                     </div>
                 </div>
                 {!!Form::close()!!}

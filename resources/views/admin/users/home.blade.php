@@ -22,7 +22,7 @@
                     <tr class="table-primary">
                         <td>ID</td>
                         <td>NOMBRE</td>
-                        <td>PELLIDO</td>
+                        <td>APELLIDO</td>
                         <td>EMAIL</td>
                         <td></td>
                     </tr>
