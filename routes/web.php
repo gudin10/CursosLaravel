@@ -32,9 +32,11 @@ Route::get('/logout','ConnectController@getLogout')->name('logout');
 Route::prefix('admin')->group(function(){
     Route::get('/','Admin\DashboardController@getDashboard');// Admin/Dashboard...
     Route::get('/users','Admin\UserController@getUsers');
-
+    //Modulo Cursos
     Route::get('/cursos','Admin\CursoController@getHome');
     Route::get('/cursos/add','Admin\CursoController@getCursoAdd');
+    Route::post('/cursos/add','Admin\CursoController@postCursoAdd');
+
     //agregar
     Route::get('/categorias/{modulo}','Admin\CategoriasController@getHome');
     Route::post('/categorias/add','Admin\CategoriasController@postCategoriaAdd');

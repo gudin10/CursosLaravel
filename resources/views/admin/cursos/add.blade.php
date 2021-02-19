@@ -22,7 +22,7 @@
             <h2 class="title"><i class="fas fa-plus-circle"></i>Agregar Cursos</h2>
         </div>
             <div class="inside">
-                {!!Form::open(['url'=>'/admin/cursos/add'])!!}
+                {!!Form::open(['url'=>'/admin/cursos/add','files'=>true])!!}
                 <div class="row">
                     <div class="col-md-5">
                         <label for="name">Nombre del curso:</label>
@@ -50,7 +50,7 @@
                         <label for="img">Imagen:</label>
                             <div class="custom-file">
                                 <label for="formFileSm" class="form-label"></label>
-                                {!!Form::file('img',['class'=>'form-label','id'=>'formFileSm'])!!}
+                                {!!Form::file('img',['class'=>'form-label','id'=>'formFileSm', 'accept'=>'image/*'])!!}
                             </div>
                             <!--CONTENIDO Y DESCRIPCION -->
                     </div>
