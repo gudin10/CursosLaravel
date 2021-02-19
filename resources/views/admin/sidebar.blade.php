@@ -24,6 +24,9 @@
                 <a href="{{url('/admin/cursos')}}" style="text-decoration:none"><i class="fas fa-chalkboard"></i>Cursos</a>
             </li>
             <li>
+                <a href="{{url('/admin/categorias/home')}}" style="text-decoration:none"><i class="far fa-folder-open"></i>Categorias</a>
+            </li>
+            <li>
                 <a href="{{url('/admin/users')}}" style="text-decoration:none"><i class="fas fa-users"></i>Usuarios</a>
             </li>
         </ul>

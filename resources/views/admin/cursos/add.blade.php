@@ -35,9 +35,14 @@
                             
                     </div>
                     <div class="col-md-3">
-                        <label for="category">Categoría:</label>
+                        <label for="categorias">Categoría:</label>
                         <div class="input-group mb-3">
-                            
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fab fa-buromobelexperte"></i>
+                                </span>
+                                {!!Form::select('categorias',$cat,0,['class'=>'form-select'])!!}
+                            </div>
                         </div>
                             <!--CONTENIDO Y DESCRIPCION -->
                     </div>
@@ -99,7 +104,7 @@
                 
                 <div class="row mtop16">
                     <div class="col-md-12">
-                        {!!Form::submit('Guardar',['class'=>'btn btn-success'])!!}
+                            {!!Form::submit('Guardar',['class'=>'btn btn-success'])!!}
                     </div>
                 </div>
                 {!!Form::close()!!}

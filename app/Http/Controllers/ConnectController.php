@@ -34,7 +34,7 @@ class ConnectController extends Controller
         $messages=[
             'email.requiered'=>'Se requiere el correo',
             'email.email'=>'Formato de correo no es valido',
-            'email.unique'=>'Ya existe el corre',
+            'email.unique'=>'Ya existe el correo',
         ];
 
         $this->validate($request,$rules,$messages);
@@ -65,10 +65,10 @@ class ConnectController extends Controller
             'lastname.required'=>'Se requiere el apellido',
             'email.requiered'=>'Se requiere el correo',
             'email.email'=>'Formato de correo no es valido',
-            'email.unique'=>'Ya existe el corre',
+            'email.unique'=>'Ya existe el correo',
             'password.required'=>'Por favor escriba contraseña',
-            'password.min'=>'Contrasea min 4 caracteres',
-            'cpassword'=>'Por favor confirmar la contrasea',
+            'password.min'=>'Contraseña mínimo 4 caracteres',
+            'cpassword'=>'Por favor confirmar la contraseña',
             'cpassword.min'=>'Debe tener 4 caracteres',
             'cpassword.same'=>'Las contraseñas no coinciden'
         ];

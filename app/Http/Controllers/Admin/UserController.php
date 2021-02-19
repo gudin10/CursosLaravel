@@ -21,4 +21,6 @@ class UserController extends Controller
         $data= ['users'=>$users];
         return view('admin.users.home',$data);
     }
+
+    
 }
