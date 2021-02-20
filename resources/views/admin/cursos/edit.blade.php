@@ -48,7 +48,8 @@
                                 <label for="img">Imagen:</label>
                                     <div class="custom-file">
                                         <label for="formFileSm" class="form-label"></label>
-                                        {!!Form::file('img',['class'=>'form-label','id'=>'formFileSm', 'accept'=>'image/*'])!!}
+                                        <!--{//!!Form::file('img',['class'=>'form-label','id'=>'formFileSm', 'accept'=>'image/*'])!!}-->
+                                        <input type="file" class="form-label" id="formFileSm" name="img">
                                     </div>
                                     <!--CONTENIDO Y DESCRIPCION -->
                             </div>
@@ -103,8 +104,8 @@
         
                         <div class="row mtop16">
                             <div class="col-md-12">
-                                <label for="status">Descripción</label>
-                                {!!Form::textarea('status',$c->contenido,['class'=>'form-control','id'=>'editor1'])!!}
+                                <label for="content">Descripción</label>
+                                {!!Form::textarea('content',$c->contenido,['class'=>'form-control','id'=>'editor1'])!!}
                                 <script>
                                     CKEDITOR.replace( 'editor1' );
                                 </script>

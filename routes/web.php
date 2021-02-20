@@ -39,6 +39,7 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/cursos/{id}/edit','Admin\CursoController@getCursoEdit');
     Route::post('/cursos/{id}/edit','Admin\CursoController@postCursoEdit');
+    Route::get('/cursos/{id}/delete','Admin\CursoController@getCursoDelete');
     
     Route::post('/cursos/add','Admin\CursoController@postCursoAdd');
 
