@@ -36,7 +36,10 @@ Route::prefix('admin')->group(function(){
     Route::get('/cursos','Admin\CursoController@getHome');
     Route::get('/cursos/add','Admin\CursoController@getCursoAdd');
     Route::post('/cursos/add','Admin\CursoController@postCursoAdd');
+
     Route::get('/cursos/{id}/edit','Admin\CursoController@getCursoEdit');
+    Route::post('/cursos/{id}/edit','Admin\CursoController@postCursoEdit');
+    
     Route::post('/cursos/add','Admin\CursoController@postCursoAdd');
 
     //agregar

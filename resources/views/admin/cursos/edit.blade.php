@@ -20,7 +20,7 @@
                     <h2 class="title"><i class="far fa-edit"></i>Editar Cursos</h2>
                 </div>
                     <div class="inside">
-                        {!!Form::open(['url'=>'/admin/cursos/add','files'=>true])!!}
+                        {!!Form::open(['url'=>'/admin/cursos/'.$c->id.'/edit','files'=>true])!!}
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="name">Nombre del curso:</label>
@@ -55,7 +55,7 @@
                         </div>
         
                         <div class="row mtop16">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="price">Precio:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">
@@ -87,13 +87,24 @@
         
                                   </div>
                             </div>
+
+                            <div class="col-md-3">
+                                <label for="indiscount">Estado:</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fas fa-user-secret"></i>
+                                    </span>
+                                    {!!Form::select('indiscount',['0'=>'Borrador','1'=>'Público'],$c->status,['class'=>'form-select'])!!}
+        
+                                  </div>
+                            </div>
         
                         </div>
         
                         <div class="row mtop16">
                             <div class="col-md-12">
-                                <label for="content">Descripción</label>
-                                {!!Form::textarea('content',$c->contenido,['class'=>'form-control','id'=>'editor1'])!!}
+                                <label for="status">Descripción</label>
+                                {!!Form::textarea('status',$c->contenido,['class'=>'form-control','id'=>'editor1'])!!}
                                 <script>
                                     CKEDITOR.replace( 'editor1' );
                                 </script>
@@ -120,8 +131,7 @@
                 </div>
             </div>
         </div>
-
-        
+        <!--composer require barryvdh/laravel-debugbar --dev-->
     </div>
     
 </div>
