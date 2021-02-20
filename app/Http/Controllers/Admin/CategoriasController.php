@@ -102,3 +102,8 @@ class CategoriasController extends Controller
         }
     }
 }
+
+
+
+
+//juanii@hotmail.com
