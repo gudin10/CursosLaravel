@@ -22,7 +22,7 @@ class CursoController extends Controller
     }
 
     public function getHome(){
-        $cursos=Curso::orderBy('id','asc')->paginate(25);
+        $cursos=Curso::orderBy('id','Desc')->paginate(25);
         $data=['cursos'=>$cursos];
         
         return view('admin.cursos.home',$data);

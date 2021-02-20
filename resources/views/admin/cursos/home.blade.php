@@ -37,7 +37,11 @@
                     @foreach ($cursos as $cur)
                         <tr>
                             <td>{{$cur->id}}</td>
-                            <td><img src="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}" alt="" width="96px"></td>
+                            <td width="80px">
+                                <a href="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}">
+                                    <img src="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}" alt="" width="90px" height="70px">
+                                </a>
+                            </td>
                             <td>{{$cur->name}}</td>
                             <td>{{$cur->cat->name}}</td>
                             <td>{{$cur->price}}</td>
