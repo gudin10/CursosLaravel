@@ -14,4 +14,8 @@ class Curso extends Model
     protected $dates= ['delete_at'];
     protected $table= 'cursos';
     protected $hidden= ['create_at','update_at'];
+
+    public function cat(){
+        return $this->hasOne(Categoria::class,'id','categoria_id');
+    }
 }

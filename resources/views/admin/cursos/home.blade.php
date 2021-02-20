@@ -22,17 +22,29 @@
                     <i class="fas fa-plus-circle"></i>Agregar Curso
                 </a>
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped mtop16">
                 <thead>
                     <tr>
                         <td>ID</td>
                         <td></td>
-                        <td>NOMBRE</td>
+                        <td>NOMBRE DEL CURSO</td>
                         <td>CATEGORIA</td>
                         <td>PRECIO</td>
                         <td></td>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach ($cursos as $cur)
+                        <tr>
+                            <td>{{$cur->id}}</td>
+                            <td></td>
+                            <td>{{$cur->name}}</td>
+                            <td>{{$cur->cat->name}}</td>
+                            <td>{{$cur->price}}</td>
+                            <td></td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>
