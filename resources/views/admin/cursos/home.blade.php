@@ -36,7 +36,7 @@
                 <tbody>
                     @foreach ($cursos as $cur)
                         <tr>
-                            <td>{{$cur->id}}</td>
+                            <td width="45px">{{$cur->id}}</td>
                             <td width="80px">
                                 <a href="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}">
                                     <img src="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}" alt="" width="90px" height="70px">
@@ -45,7 +45,14 @@
                             <td>{{$cur->name}}</td>
                             <td>{{$cur->cat->name}}</td>
                             <td>{{$cur->price}}</td>
-                            <td></td>
+                            <td>
+                                <div class="opts">
+                                    <a href="{{url('/admin/cursos/'.$cur->id.'/edit')}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
+                                        <i class="fas fa-edit"></i></a>
+                                    <a href="{{url('/admin/cursos/'.$cur->id.'/delete')}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                                        <i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
