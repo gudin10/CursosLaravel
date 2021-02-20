@@ -8,6 +8,9 @@ use App\Http\Models\Categoria;
 use App\Http\Models\Curso;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Config;
+use Faker\Provider\Image;
+
+
 use Illuminate\Support\Str;
 class CursoController extends Controller
 {
@@ -19,7 +22,11 @@ class CursoController extends Controller
     }
 
     public function getHome(){
-        return view('admin.cursos.home');
+        $cursos=Curso::orderBy('id','asc')->paginate(25);
+        $data=['cursos'=>$cursos];
+        
+        return view('admin.cursos.home',$data);
+
     }
 
     public function getCursoAdd(){
@@ -49,11 +56,11 @@ class CursoController extends Controller
         $path='/'.date('Y-m-d');//2021-01-01
         $fileExt=trim($request->file('img')->getClientOriginalExtension());
         
-        $upload_path=Config::get('filessystems.disk.uploads.root');
+        $upload_path=Config::get('filessystems.disks.uploads.root');
 
         $name= Str::slug(str_replace($fileExt,'',$request->file('img')->getClientOriginalName()));
         $filename=rand(1,999).'-'.$name.'.'.$fileExt;
-
+        $file_file=$upload_path.'/'.$path.'/'.$filename;
 
         $curso= new Curso;
 
@@ -61,7 +68,8 @@ class CursoController extends Controller
         $curso->name=e($request->input('name'));
         $curso->slug=Str::slug($request->input('slug'));
         $curso->categoria_id= $request->input('categorias');
-        $curso->image="$filename";
+        $curso->file_path= date('Y-m-d');//composer require intervetion/image
+        $curso->image= $filename; //en comillas "filename"
         $curso->price=$request->input('price');
         $curso->in_discount=$request->input('indiscount');
         $curso->discount=$request->input('discount');        
@@ -70,14 +78,36 @@ class CursoController extends Controller
         $curso->save();
 
         if($curso->save()){
-            if($request->hasFile('img')){
+            
+                
                 $fl=$request->img->storeAs($path,$filename,'uploads');
-            }
+                $img=$filename;
+                
+
+                //$img->save($upload_path.'/'.$path.'/t_'.$filename);
+            
             //return $fileExt;
             return redirect('/admin/cursos');
         }else{
             return back()->withInput();
         }
+        /*
+        if($curso->save()){
+            if($request->hash_file('img')){
+                
+                $fl=$request->img->storeAs($path,$filename,'uploads');
+                $img=Image::make($filename);
+                $img->fit(256,256,function($constrain){
+                    $constrain->upsize();
+                });
+
+                $img->save($upload_path.'/'.$path.'/t_'.$filename);
+            }
+            //return $fileExt;
+            return redirect('/admin/cursos');
+        }else{
+            return back()->withInput();
+        }*/ 
 
     }
 

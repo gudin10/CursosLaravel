@@ -22,9 +22,17 @@
                     <i class="fas fa-plus-circle"></i>Agregar Curso
                 </a>
             </div>
-            <table class="table">
-                
-                
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td></td>
+                        <td>NOMBRE</td>
+                        <td>CATEGORIA</td>
+                        <td>PRECIO</td>
+                        <td></td>
+                    </tr>
+                </thead>
             </table>
         </div>
     </div>
