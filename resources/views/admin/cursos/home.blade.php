@@ -57,6 +57,9 @@
                             </td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td colspan="6">{!!$cursos->render()!!}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

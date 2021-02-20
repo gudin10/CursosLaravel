@@ -12,6 +12,7 @@ use App\Models\User;
 class ConnectController extends Controller
 {
     
+    protected $redirectTo = '/admin';
 
     public function __Construct(){
         //$this->middleware('guest');//cualquier funcion o metodo requiere usuario sea visitante
@@ -40,7 +41,7 @@ class ConnectController extends Controller
         $this->validate($request,$rules,$messages);
 
         if (Auth::attempt(['email'=>$request->input('email'),'password'=>$request->input('password')],true)) {
-            return redirect('/');
+            return redirect()->route('getadmin');
         }else {
             $this->validate($request,$rules,$messages);
             return redirect()->route('login');

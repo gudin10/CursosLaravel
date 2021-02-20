@@ -14,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('getadmin');
 });
 
+Route::get('/home', function () {
+    return redirect()->route('getadmin');
+});
 //Routes Auth
-Route::get('/login','ConnectController@getLogin')->name('login');
+Route::get('/login','ConnectController@getLogin')->middleware('guest')->name('login');
 Route::post('/login','ConnectController@postLogin')->name('login');
 
 Route::get('/register','ConnectController@getRegister')->name('register');
@@ -29,8 +32,9 @@ Route::get('/logout','ConnectController@getLogout')->name('logout');
 
 //Route::get('/admin','Admin\DashboardControlller@getDashboard')->name('admin');
 
-Route::prefix('admin')->group(function(){
-    Route::get('/','Admin\DashboardController@getDashboard');// Admin/Dashboard...
+Route::prefix('admin')->middleware('auth')->group(function(){
+
+    Route::get('/','Admin\DashboardController@getDashboard')->name('getadmin');// Admin/Dashboard...
     Route::get('/users','Admin\UserController@getUsers');
     //Modulo Cursos
     Route::get('/cursos','Admin\CursoController@getHome');
@@ -51,6 +55,8 @@ Route::prefix('admin')->group(function(){
     Route::post('categorias/{id}/edit','Admin\CategoriasController@postCategoriaEdit');
     //Borrar
     Route::get('categorias/{id}/delete','Admin\CategoriasController@getCategoriaDelete');
+
+
     
 });
 
