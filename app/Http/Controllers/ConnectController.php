@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
-use App\Models\user;
+use App\Models\User;
 
 class ConnectController extends Controller
 {
@@ -43,7 +43,7 @@ class ConnectController extends Controller
             return redirect('/');
         }else {
             $this->validate($request,$rules,$messages);
-            return back()->route('login');
+            return redirect()->route('login');
         }
     }
 
