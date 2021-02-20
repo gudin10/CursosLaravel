@@ -66,14 +66,10 @@
     function del(event,id,name) {
         event.preventDefault();
         //confirm('Esta seguro de eliminar:'+name);
-        if(confirm('Esta seguro de eliminar:'+name+id)){
+        if(confirm('Esta seguro de eliminar el curso: '+name)){
             window.location.href="/admin/cursos/"+id+"/delete";
         }
 
     }
 </script>
-@endsection
-
-@section('script')
-    
 @endsection
