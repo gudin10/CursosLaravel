@@ -111,5 +111,12 @@ class CursoController extends Controller
 
     }
 
+    public function getCursoEdit($id){
+        $c=Curso::find($id);
+        $cat= Categoria::where('modulo','0')->pluck('name','id');
+        $data = ['cat'=>$cat,'c'=>$c];
+        return view('admin.cursos.edit',$data);
+    }
+
 
 }

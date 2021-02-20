@@ -13,6 +13,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="panel shadow">
+        
         <div class="header">
             <h2 class="title"><i class="fas fa-chalkboard"></i>Cursos</h2>
         </div>
@@ -38,7 +39,7 @@
                         <tr>
                             <td width="45px">{{$cur->id}}</td>
                             <td width="80px">
-                                <a href="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}">
+                                <a data-fancybox="gallery" href="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}">
                                     <img src="{{url('/uploads/'.$cur->file_path.'/'.$cur->image)}}" alt="" width="90px" height="70px">
                                 </a>
                             </td>
