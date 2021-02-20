@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('getadmin');
-});
+    return redirect()->route('login');
+})->name('inicio2');
 
 Route::get('/home', function () {
-    return redirect()->route('getadmin');
-});
+    return redirect()->route('login');
+})->name('inicio');
 //Routes Auth
 Route::get('/login','ConnectController@getLogin')->middleware('guest')->name('login');
 Route::post('/login','ConnectController@postLogin')->name('login');

@@ -105,7 +105,7 @@ class ConnectController extends Controller
 
     public function getLogout(){
         Auth::logout();
-        return redirect('/');
+        return redirect()->route('inicio');
     }
 
     
