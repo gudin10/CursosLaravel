@@ -185,11 +185,12 @@ class CursoController extends Controller
     }
 
     public function getCursoDelete($id){
+        
         $cat=Curso::find($id);
         $cat->delete();
 
         if($cat->delete()){
-            return redirect('/admin/cursos/home');
+            return redirect('/admin/cursos');
         }
     }
 

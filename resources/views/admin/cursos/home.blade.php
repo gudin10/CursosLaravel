@@ -50,7 +50,8 @@
                                 <div class="opts">
                                     <a href="{{url('/admin/cursos/'.$cur->id.'/edit')}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
                                         <i class="fas fa-edit"></i></a>
-                                    <a href="{{url('/admin/cursos/'.$cur->id.'/delete')}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                                    <a onclick="del(event,'{{$cur->id}}','{{$cur->name}}')" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+
                                         <i class="fas fa-trash-alt"></i></a>
                                 </div>
                             </td>
@@ -61,4 +62,18 @@
         </div>
     </div>
 </div>
+<script>
+    function del(event,id,name) {
+        event.preventDefault();
+        //confirm('Esta seguro de eliminar:'+name);
+        if(confirm('Esta seguro de eliminar:'+name+id)){
+            window.location.href="/admin/cursos/"+id+"/delete";
+        }
+
+    }
+</script>
+@endsection
+
+@section('script')
+    
 @endsection
